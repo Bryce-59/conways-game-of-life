@@ -11,6 +11,7 @@
 // --------
 
 #include "AbstractCell.hpp"
+#include <cassert>
 
 using namespace std;
 class ConwayCell : public AbstractCell {
@@ -19,13 +20,12 @@ class ConwayCell : public AbstractCell {
         int countNeighbors(vector<vector<bool>> map) {
             int pos_x = AbstractCell::getX();
             int pos_y = AbstractCell::getY();
-
             assert(map[pos_y][pos_x] == AbstractCell::getAlive());
             
             int y_min = max(0, pos_y - 1);
             int y_max = min(pos_y + 1, (int) map.size() - 1);
             int x_min = max(0, pos_x - 1);
-            int x_max = min(pos_x + 1, (int) map.size() - 1);
+            int x_max = min(pos_x + 1, (int) map[0].size() - 1);
 
             int total = 0;
             for (int i = y_min; i <= y_max; i++) {
@@ -50,11 +50,17 @@ class ConwayCell : public AbstractCell {
         
         bool updateCell(vector<vector<bool>> map) {            
             int n = countNeighbors(map);
-            if (n == 3) {
-                AbstractCell::setAlive(true);
+            if (AbstractCell::getAlive() == true) {
+               if (n < 2 || n > 3) {
+                    AbstractCell::setAlive(false);
+                    return false;
+               }
                 return true;
             } else {
-                AbstractCell::setAlive(false);
+                if (n == 3) {
+                    AbstractCell::setAlive(true);
+                    return true;
+               }
             }
             return false;
         }

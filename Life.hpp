@@ -31,11 +31,11 @@ class Life {
         void updateBoard () {
             vector<vector<bool>> cur_neighborhood(board.size());
             for (int i = 0 ; i < board.size() ; i++) {
-                board[i].resize(board[i].size());
+                cur_neighborhood[i].resize(board[i].size());
             }
 
-            for (int y = 0; y <= board.size(); y++) {
-                for (int x = 0; x <= board[0].size(); x++) {
+            for (int y = 0; y < board.size(); y++) {
+                for (int x = 0; x < board[0].size(); x++) {
                     cur_neighborhood[y][x] = board[y][x].updateCell(neighborhood);
                 }
             }
@@ -45,8 +45,8 @@ class Life {
         string displayBoard() {
 
             string str = "";
-            for (int y = 0; y = board.size(); y++) {
-                for (int x = 0; x = board[0].size(); x++) {
+            for (int y = 0; y < board.size(); y++) {
+                for (int x = 0; x < board[0].size(); x++) {
                     str += board[y][x].displaySelf();
                 }
                 str += "\n";

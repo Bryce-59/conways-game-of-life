@@ -128,12 +128,12 @@ ctd-generate:
 # execute the run harness against a test file in the Collatz test repo and diff with the expected output
 ../cs371p-Life-tests/%: RunLife
 	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
-	./RunLife < $@.in.txt > RunLife.tmp.txt
-	diff RunLife.tmp.txt $@.out.txt
+	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
+	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
 run: ../cs371p-Life-tests
-	-make ../cs371p-Life-tests/brycedrichardson191-RunLife
+	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeConway
 
 # execute the run harness against all of the test files in the Life test repo and diff with the expected output
 run-all: ../cs371p-Life-tests

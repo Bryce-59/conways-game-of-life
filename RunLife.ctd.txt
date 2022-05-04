@@ -16,9 +16,9 @@ REPI(testno, t, NEWLINE)
         SET(n = m)
     END
     
-    REPI(coor, n, NEWLINE)
-        INT(1, r, y) SPACE
-        INT(1, c, x) NEWLINE
+    REPI(coor, n)
+        INT(0, r - 1, y) SPACE
+        INT(0, c - 1, x) NEWLINE
     END
 
     INT(1, 2000, s) SPACE
