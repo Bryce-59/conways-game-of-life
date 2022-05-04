@@ -82,9 +82,9 @@ push:
 	git status
 
 # compile run harness
-RunLife: Life.hpp RunLife.cpp
-	-$(CPPCHECK) RunLife.cpp
-	$(CXX) $(CXXFLAGS) RunLife.cpp -o RunLife
+RunLife: Life.hpp RunLifeConway.cpp 
+	-$(CPPCHECK) RunLifeConway.cpp
+	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
 
 # compile test harness
 TestLife: Life.hpp TestLife.cpp

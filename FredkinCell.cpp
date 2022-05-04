@@ -1,4 +1,4 @@
-class FredkinCell extends AbstractCell {
+class FredkinCell : public AbstractCell {
     private:
         bool alive;
         
@@ -26,7 +26,21 @@ class FredkinCell extends AbstractCell {
     public:
         FredkinCell( int y, int x, bool alive ) : AbstractCell(y, x, alive), my_age(0) {}
 
-        bool updateCell(vector<vector<bool>> map) {
+        String displaySelf() {
+            if (alive) {
+                if (age < 10) {
+                    return "" + my_age;
+                }
+                return "+";
+            }
+            return "-";
+        }
+
+        bool isAlive() {
+            return alive;
+        }
+        
+        void updateCell(vector<vector<bool>> map) {
             assert(map.at(pos_y).at(pos_x) == alive);
             
             int n = countNeighbors(map);
@@ -39,15 +53,5 @@ class FredkinCell extends AbstractCell {
                 alive = false;
             }
             return alive;
-        }
-        
-        String displaySelf() {
-            if (alive) {
-                if (age < 10) {
-                    return "" + my_age;
-                }
-                return "+";
-            }
-            return "-";
         }
 };

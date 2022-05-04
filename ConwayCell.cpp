@@ -1,4 +1,8 @@
-class ConwayCell extends AbstractCell {
+#include "AbstractCell.hpp"
+
+using namespace std;
+
+class ConwayCell : public AbstractCell {
     private:
         bool alive;
         
@@ -14,16 +18,23 @@ class ConwayCell extends AbstractCell {
             int total = 0;
             for (int i = y_min; i <= y_max; i++) {
                 for (int j = x_min; j <= x_max; j++) {
-                    total += map.at(i).at(j);
+                    total += map[i][j];
                 }
             }
-            return total - map.at(pos_y).at(pos_x);
+            return total - map[pos_y][pos_x];
         }
     public:
         ConwayCell( int y, int x, bool alive ) : AbstractCell(y, x, alive) {} 
 
+        string displaySelf() {
+            if (alive) {
+                return "*";
+            }
+            return ".";
+        }
+        
         bool updateCell(vector<vector<bool>> map) {
-            assert(map.at(pos_y).at(pos_x) == alive);
+            assert(map[pos_y][pos_x] == alive);
             
             int n = countNeighbors(map);
             if (n == 3) {
@@ -31,13 +42,5 @@ class ConwayCell extends AbstractCell {
             } else {
                 alive = false;
             }
-            return alive;
-        }
-        
-        String displaySelf() {
-            if (alive) {
-                return "*";
-            }
-            return ".";
         }
 };
