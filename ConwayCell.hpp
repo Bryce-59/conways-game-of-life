@@ -41,6 +41,8 @@ class ConwayCell : public AbstractCell {
 
         ConwayCell( int y, int x, bool alive ) : AbstractCell(y, x, alive) {} 
 
+        ConwayCell( AbstractCell *p ) : AbstractCell(p) {}
+
         string displaySelf() {
             if (AbstractCell::_alive) {
                 return "*";

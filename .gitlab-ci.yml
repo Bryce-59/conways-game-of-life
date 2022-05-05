@@ -18,8 +18,8 @@ gcc:
     - ls -al
     - make run-fredkin
     - ls -al
-    # - make run-cell
-    # - ls -al
+    - make run-cell
+    - ls -al
     # - make run-all
     # - ls -al
     - make check

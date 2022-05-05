@@ -12,7 +12,7 @@
 
 #include <cassert>
 
-#include "AbstractCell.hpp"
+// #include "AbstractCell.hpp"
 
 using namespace std;
 class FredkinCell : public AbstractCell {
@@ -34,7 +34,7 @@ class FredkinCell : public AbstractCell {
             if (pos_x > 0) {
                 total += (*map)[pos_y][pos_x - 1];
             }
-            if (pos_x < (*map).size() - 1) {
+            if (pos_x < (*map)[0].size() - 1) {
                 total += (*map)[pos_y][pos_x + 1];
             }
             return total;
@@ -44,6 +44,8 @@ class FredkinCell : public AbstractCell {
         FredkinCell() : AbstractCell() {}
 
         FredkinCell( int y, int x, bool alive ) : AbstractCell(y, x, alive), _age(0) {} 
+
+        FredkinCell( AbstractCell *p ) : AbstractCell(p), _age(0) {}
 
         string displaySelf() {
             if (AbstractCell::_alive) {
@@ -66,11 +68,15 @@ class FredkinCell : public AbstractCell {
                    return true;
                }
             } else {
-                if (n % 2 != 0) {
+                if (n % 2 == 1) {
                     AbstractCell::_alive = true;
                     return true;
                 } 
             }
             return false;
+        }
+    
+        bool isAge(int age) {
+            return age == _age;
         }
 };

@@ -57,7 +57,7 @@ vector<vector<bool>> get_start_map () {
     int n;
     cin >> n;
     assert(n > 0);
-    assert((n <= r * c) && (n <= 700));
+    assert(n <= 700);
     getline(cin, s);
 
     int coor = 0;

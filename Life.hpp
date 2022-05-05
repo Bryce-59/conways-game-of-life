@@ -1,4 +1,6 @@
 #include <vector>
+#include "ConwayCell.hpp"
+#include "Cell.hpp"
 
 using namespace std;
 
@@ -25,7 +27,7 @@ class Life {
             for (int i = 0; i < initial.size(); i++) {
                 for (int j = 0; j < initial[i].size(); j++) {
                     bool alive = neighborhood[i][j];
-                    board[i][j] = *(new C(i, j, alive));
+                    board[i][j] = C(i, j, alive);
                     init_pop += alive;
                 }
             }
@@ -35,9 +37,13 @@ class Life {
 
         void updateBoard () {
             int cur_pop = 0;
+            Cell tmp = Cell();
             for (int y = 0; y < board.size(); y++) {
                 for (int x = 0; x < board[0].size(); x++) {
                     bool alive = board[y][x].updateCell(&neighborhood);
+                    if (alive && typeid(board[y][x]).name() == typeid(tmp).name()) {
+                        board[y][x].mutate(new ConwayCell(y, x, true));
+                    }
                     cur_neighborhood[y][x] = alive;
                     cur_pop += alive;
                 }
