@@ -1,5 +1,5 @@
 // ----------------
-// RunLifeCell.cpp
+// RunLifeConway.cpp
 // ----------------
 
 // --------
@@ -8,10 +8,11 @@
 
 #include <vector>
 #include <iostream> // cin, cout
-#include <sstream>  // istringstream
-#include <map>
 
-#include "Allocator.hpp"
+#include "Life.hpp"
+#include "Cell.hpp"
+
+#include "RunLife.cpp"
 
 // ----
 // main
@@ -19,63 +20,16 @@
 
 int main () {
     using namespace std;
-
-    string s;
-    int t;
-    cin >> t;
-    getline(cin, s);
-    assert(t > 0);
-    assert(t <= 100);
-    getline(cin, s);
-
+    int t = get_tests();
     for (int i = 0; i < t; i++) {
         // create the board
-        int r;
-        int c;
-        cin >> r;
-        cin >> c;
-        getline(cin, s);
-        assert(r > 0);
-        assert(r <= 200);
-        assert(c > 0);
-        assert(c <= 200);
-
-        // initialize the board
-        int n;
-        cin >> n;
-        assert(n > 0);
-        assert((n <= r * c) && (n <= 700));
-        getline(cin, s);
-
-        int coor = 0;
-        while (coor < n && getline(cin, s)) {
-            istringstream iss(s);
-            int x;
-            int y;
-            iss >> x;
-            iss >> y;
-
-            /* add initilization code here */
-
-            ++coor;
+        vector<vector<bool>> start_map = get_start_map();
+        Life<Cell> life_board(start_map);
+        if (i != 0) {
+            cout << endl;
         }
-        assert(coor == n);
-        
-        int s;
-        int f;
-        cin << s;
-        cin << f;
-        getline(cin, s);
-        assert(s > 0);
-        assert(s <= 2000);
-        assert(f > 0);
-        assert(f <= 200);
-        getline(cin, s);
-
-        // perform the simulation
-
-        /* add simulation code here */
-
+        cout << "*** Life<Cell> " << start_map.size() << "x" << start_map[0].size() << " ***" << endl;
+        start_game (life_board);
     }
     return 0;
 }
