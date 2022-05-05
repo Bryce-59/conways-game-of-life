@@ -82,9 +82,17 @@ push:
 	git status
 
 # compile run harness
-RunLife: Life.hpp RunLifeConway.cpp 
+RunLifeConway: RunLifeConway.cpp
 	-$(CPPCHECK) RunLifeConway.cpp
 	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
+
+RunLifeFredkin: RunLifeFredkin.cpp
+	-$(CPPCHECK) RunLifeFredkin.cpp
+	$(CXX) $(CXXFLAGS) RunLifeFredkin.cpp -o RunLifeFredkin
+
+RunLifeCell: RunLifeCell.cpp
+	-$(CPPCHECK) RunLifeCell.cpp
+	$(CXX) $(CXXFLAGS) RunLifeCell.cpp -o RunLifeCell
 
 # compile test harness
 TestLife: Life.hpp TestLife.cpp
@@ -93,7 +101,9 @@ TestLife: Life.hpp TestLife.cpp
 
 # run/test files, compile with make all
 FILES :=          \
-    RunLife  \
+    RunLifeConway \
+	RunLifeFredkin\
+	RunLifeCell   \
     TestLife
 
 # compile all
@@ -123,21 +133,33 @@ ctd-check: ../cs371p-Life-tests
 
 # generate a random input file
 ctd-generate:
-	for v in {1..100}; do $(CHECKTESTDATA) -g RunLife.ctd.txt >> RunLife.gen.txt; done
+	for v in {1}; do $(CHECKTESTDATA) -g RunLife.ctd.txt >> RunLife.gen.txt; done
 
 # execute the run harness against a test file in the Collatz test repo and diff with the expected output
-../cs371p-Life-tests/%: RunLife
-	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
-	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
-	diff RunLifeConway.tmp.txt $@.out.txt
+# ../cs371p-Life-tests/%: RunLife
+# 	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
+# 	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
+# 	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
-run: ../cs371p-Life-tests
-	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeConway
+run-conway: RunLifeConway
+	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt
+	./RunLifeConway < ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt > RunLifeConway.tmp.txt
+	diff RunLifeConway.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.out.txt
+
+run-fredkin: RunLifeFredkin
+	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt
+	./RunLifeFredkin < ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt > RunLifeFredkin.tmp.txt
+	diff RunLifeFredkin.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.out.txt
+
+run-cell: RunLifeCell
+	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt
+	./RunLifeCell < ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt > RunLifeCell.tmp.txt
+	diff RunLifeCell.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.out.txt
 
 # execute the run harness against all of the test files in the Life test repo and diff with the expected output
-run-all: ../cs371p-Life-tests
-	-for v in $(T_FILES); do make $${v/.in.txt/}; done
+# run-all-conway: ../cs371p-Life-tests
+# 	-for v in $(T_FILES); do make $${v/.in.txt/}; done
 
 # auto format the code
 format:
@@ -174,7 +196,9 @@ clean:
 	rm -f  *.gcov
 	rm -f  *.gen.txt
 	rm -f  *.tmp.txt
-	rm -f  RunLife
+	rm -f  RunLifeConway
+	rm -f  RunLifeFredkin
+	rm -f  RunLifeCell
 	rm -f  TestLife
 	rm -rf *.dSYM
 

@@ -1,9 +1,5 @@
 #include <vector>
 
-// #include "ConwayCell.hpp"
-#include "FredkinCell.hpp"
-#include "Cell.hpp"
-
 using namespace std;
 
 template <typename C>

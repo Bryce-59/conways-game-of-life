@@ -10,8 +10,9 @@
 // includes
 // --------
 
-#include "AbstractCell.hpp"
 #include <cassert>
+
+#include "AbstractCell.hpp"
 
 using namespace std;
 class FredkinCell : public AbstractCell {
