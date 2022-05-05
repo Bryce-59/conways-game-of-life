@@ -24,11 +24,11 @@ int main () {
     for (int i = 0; i < t; i++) {
         // create the board
         vector<vector<bool>> start_map = get_start_map();
+        Life<ConwayCell> life_board(start_map);
 
-        cout << "*** Life<ConwayCell> " << start_map.size() << "x" << start_map[0].size() << " ***" << endl << endl;
-        
-        Life<ConwayCell> life(start_map);
-        start_game (life);
+        cout << "*** Life<ConwayCell> " << start_map.size() << "x" << start_map[0].size() << " ***" << endl;
+        cout << endl;
+        start_game (life_board);
     }
     return 0;
 }

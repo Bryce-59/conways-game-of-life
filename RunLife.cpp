@@ -10,6 +10,7 @@
 #include <iostream> // cin, cout
 #include <sstream>  // istringstream
 #include <cassert>   // assert
+#include <algorithm> //count
 
 // #include "Life.hpp"
 
@@ -80,7 +81,7 @@ vector<vector<bool>> get_start_map () {
 }
 
 template <typename C>
-void start_game(Life<C> life) {
+void start_game(Life<C> life_board) {
     string s;
     int s_;
     int f;
@@ -93,12 +94,10 @@ void start_game(Life<C> life) {
     assert(f <= 200);
     getline(cin, s);
 
-    for (int i = 0; i <= s_; i++) {
+    for (int i = 1; i <= s_; i++) {
         if (i % f == 0) {
-            string q = life.displayBoard();
-            cout << "Generation = " << i << ", Population = " << count(q.begin(), q.end(), '*') << "." << endl;
-            cout << q << endl;
-            life.updateBoard();
+            cout << life_board.displayBoard() << endl;
         }
+        life_board.updateBoard();
     }
 }
