@@ -24,12 +24,17 @@ class Life {
                 b[i].resize(initial[i].size());
             }
             board = b;
+
+            int init_pop = 0;
             for (int i = 0; i < initial.size(); i++) {
                 for (int j = 0; j < initial[i].size(); j++) {
-                    board[i][j] = *(new C(i, j, neighborhood[i][j]));
+                    bool alive = neighborhood[i][j];
+                    board[i][j] = *(new C(i, j, alive));
+                    init_pop += alive;
                 }
             }
             generation = 0;
+            population = init_pop;
         } 
 
         void updateBoard () {
@@ -47,8 +52,7 @@ class Life {
         }
 
         string displayBoard() {
-            cout << "Generation = " << generation << ", Population = " << population << "." << endl;
-            string str = "";
+            string str = "Generation = " + to_string(generation) + ", Population = " + to_string(population) + ".\n";
             for (int y = 0; y < board.size(); y++) {
                 for (int x = 0; x < board[0].size(); x++) {
                     str += board[y][x].displaySelf();

@@ -94,9 +94,10 @@ void start_game(Life<C> life_board) {
     assert(f <= 200);
     getline(cin, s);
 
-    for (int i = 1; i <= s_; i++) {
+    for (int i = 0; i <= s_; i++) {
         if (i % f == 0) {
-            cout << life_board.displayBoard() << endl;
+            cout << endl;
+            cout << life_board.displayBoard();
         }
         life_board.updateBoard();
     }
