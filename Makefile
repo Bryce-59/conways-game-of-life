@@ -125,7 +125,7 @@ endif
 	git clone https://gitlab.com/gpdowning/cs371p-Life-tests.git ../cs371p-Life-tests
 
 # test files in the Life test repo
-T_FILES := `ls ../cs371p-Life-tests/*.in.txt`
+T_FILES := `ls ../cs371p-Life-tests/*Conway.in.txt`
 
 # check the integrity of all the test files in the Collatz test repo
 ctd-check: ../cs371p-Life-tests
@@ -134,12 +134,6 @@ ctd-check: ../cs371p-Life-tests
 # generate a random input file
 ctd-generate:
 	for v in {1}; do $(CHECKTESTDATA) -g RunLife.ctd.txt >> RunLife.gen.txt; done
-
-# execute the run harness against a test file in the Collatz test repo and diff with the expected output
-# ../cs371p-Life-tests/%: RunLife
-# 	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
-# 	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
-# 	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
 run-conway: RunLifeConway
@@ -156,10 +150,6 @@ run-cell: RunLifeCell
 	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt
 	./RunLifeCell < ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt > RunLifeCell.tmp.txt
 	diff RunLifeCell.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.out.txt
-
-# execute the run harness against all of the test files in the Life test repo and diff with the expected output
-# run-all-conway: ../cs371p-Life-tests
-# 	-for v in $(T_FILES); do make $${v/.in.txt/}; done
 
 # auto format the code
 format:

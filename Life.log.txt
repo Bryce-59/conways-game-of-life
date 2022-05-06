@@ -1,0 +1,65 @@
+commit 4d38b175dbead9c57bc33f1a4097a54e538fced7 (HEAD -> master, origin/master)
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 22:49:39 2022 -0500
+
+    working unit tests!
+
+commit b8d89d7da0212589e61ca15c218c28103bde8775
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 14:06:25 2022 -0500
+
+    working cell
+
+commit c86129afb9681d5c6c9de9542e6820b5eba729a5
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 03:15:09 2022 -0500
+
+    add pipeline
+
+commit 0a47a6967f9a69787ca3c2a9828d4cba06dd9a9f
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 03:06:59 2022 -0500
+
+    all but cell and unit tests
+
+commit 87c16fa6c0bf601395bcd9706e15287151004363
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 00:34:11 2022 -0500
+
+    Fredkin works too
+
+commit 88ad477c0b83398a59a6e054ad8bdef0f02ce4d2
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 00:03:11 2022 -0500
+
+    all of Conway is working
+
+commit e0371196ff020a04a91896ad4ac2258c8e55177c
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Wed May 4 19:04:04 2022 -0500
+
+    much more efficient
+
+commit 8209ed240129696769de7e7a8526524d87894ae2
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Wed May 4 16:10:20 2022 -0500
+
+    passing test 1
+
+commit 6ada0fa0b62ac1f567f742026e31d744be879d0f
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Wed May 4 01:38:00 2022 -0500
+
+    some more progress
+
+commit 226ca2e36b932f864e4d601415fb75cb19dd04f2
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Mon May 2 01:17:54 2022 -0500
+
+    first commit
+
+commit e0cd63d0f59e6b4b7e623cffd334b7de89d1eecb (origin/main)
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Mon May 2 06:13:56 2022 +0000
+
+    Initial commit
