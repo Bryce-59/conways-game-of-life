@@ -1,0 +1,9 @@
+.DS_Store
+*.gcda
+*.gcno
+*.tmp.txt
+Doxyfile
+Icon?
+latex
+RunAllocator
+TestAllocator
