@@ -1,4 +1,10 @@
-commit 4d38b175dbead9c57bc33f1a4097a54e538fced7 (HEAD -> master, origin/master)
+commit 18315e99bf246861f1c37788e5cbae9b8fc6fdfd (HEAD -> master, origin/master)
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 23:38:06 2022 -0500
+
+    semi-final
+
+commit 4d38b175dbead9c57bc33f1a4097a54e538fced7
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
 Date:   Thu May 5 22:49:39 2022 -0500
 
