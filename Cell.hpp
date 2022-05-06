@@ -1,6 +1,21 @@
-#include <iostream>
+// -------------
+// Cell.hpp
+// -------------
+
+#ifndef Cell_hpp
+#define Cell_hpp
+#endif
+
+// --------
+// includes
+// --------
+#ifndef AbstractCell_hpp
+#include "AbstractCell.hpp"
+#endif
+
+#ifndef FredkinCell_hpp
 #include "FredkinCell.hpp"
-using namespace std;
+#endif
 
 
 class Cell {

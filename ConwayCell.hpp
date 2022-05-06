@@ -9,8 +9,10 @@
 // --------
 // includes
 // --------
-
+#ifndef AbstractCell_hpp
 #include "AbstractCell.hpp"
+#endif
+
 #include <cassert>
 
 using namespace std;

@@ -9,10 +9,11 @@
 // --------
 // includes
 // --------
+#ifndef AbstractCell_hpp
+#include "AbstractCell.hpp"
+#endif
 
 #include <cassert>
-
-// #include "AbstractCell.hpp"
 
 using namespace std;
 class FredkinCell : public AbstractCell {

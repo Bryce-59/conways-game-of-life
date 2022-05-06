@@ -2,6 +2,10 @@
 // RunLife.cpp
 // ----------------
 
+#ifndef RunLife_cpp
+#define RunLife_cpp
+#endif
+
 // --------
 // includes
 // --------
@@ -12,7 +16,9 @@
 #include <cassert>   // assert
 #include <algorithm> //count
 
-// #include "Life.hpp"
+#ifndef Life_hpp
+#include "Life.hpp"
+#endif
 
 // ----
 // main

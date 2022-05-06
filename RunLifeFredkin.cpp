@@ -1,6 +1,10 @@
 // ----------------
-// RunLifeConway.cpp
+// RunLifeFredkin.cpp
 // ----------------
+
+#ifndef RunLifeFredkin_cpp
+#define RunLifeFredkin_cpp
+#endif
 
 // --------
 // includes
@@ -9,10 +13,17 @@
 #include <vector>
 #include <iostream> // cin, cout
 
+#ifndef Life_hpp
 #include "Life.hpp"
-#include "FredkinCell.hpp"
+#endif
 
+#ifndef FredkinCell_hpp
+#include "FredkinCell.hpp"
+#endif
+
+#ifndef RunLife_cpp
 #include "RunLife.cpp"
+#endif
 
 // ----
 // main

@@ -1,6 +1,10 @@
 // ----------------
-// RunLifeConway.cpp
+// RunLifeCell.cpp
 // ----------------
+
+#ifndef RunLifeCell_cpp
+#define RunLifeCell_cpp
+#endif
 
 // --------
 // includes
@@ -9,9 +13,17 @@
 #include <vector>
 #include <iostream> // cin, cout
 
+#ifndef Life_hpp
 #include "Life.hpp"
+#endif
 
+#ifndef Cell_hpp
+#include "ConwayCell.hpp"
+#endif
+
+#ifndef RunLife_cpp
 #include "RunLife.cpp"
+#endif
 
 // ----
 // main

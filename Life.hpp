@@ -1,6 +1,32 @@
-#include <vector>
+// -------------
+// Life.hpp
+// -------------
+
+#ifndef Life_hpp
+#define Life_hpp
+#endif
+
+// -------------
+// includes
+// -------------
+
+#ifndef AbstractCell_hpp
+#include "AbstractCell.hpp"
+#endif
+
+#ifndef ConwayCell_hpp
 #include "ConwayCell.hpp"
+#endif
+
+#ifndef FredkinCell_hpp
+#include "FredkinCell.hpp"
+#endif
+
+#ifndef Cell_hpp
 #include "Cell.hpp"
+#endif
+
+#include <vector>
 
 using namespace std;
 
@@ -41,8 +67,8 @@ class Life {
             for (int y = 0; y < board.size(); y++) {
                 for (int x = 0; x < board[0].size(); x++) {
                     bool alive = board[y][x].updateCell(&neighborhood);
-                    if (alive && typeid(board[y][x]).name() == typeid(tmp).name()) {
-                        board[y][x].mutate(new ConwayCell(y, x, true));
+                    if (alive && typeid(board[y][x]).name() == typeid(tmp).name() && board[y][x].displaySelf() == "2") {
+                        board[y][x] = new ConwayCell(y, x, true);
                     }
                     cur_neighborhood[y][x] = alive;
                     cur_pop += alive;
