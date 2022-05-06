@@ -7,6 +7,8 @@ gcc:
     image: gpdowning/gcc
     script:
     - cat Makefile
+    - make all
+    - ls -al
     - make versions
     - ls -al
     - make test
