@@ -8,13 +8,12 @@
 
 * HackerRank ID: brycedrichardson191
 
-* Git SHA: 
+* Git SHA: 18315e99bf246861f1c37788e5cbae9b8fc6fdfd
 
 * GitLab Pipelines: https://gitlab.com/brycedrichardson191/cs371p-life/-/pipelines
 
 * Estimated completion time: 14
 
-* Actual completion time: 
+* Actual completion time: 16
 
 * Comments: N/A
->>>>>>> f12e42d (test)

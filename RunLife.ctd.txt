@@ -6,15 +6,7 @@ REPI(testno, t, NEWLINE)
     INT(1, 200, r) SPACE
     INT(1, 200, c) NEWLINE
 
-    SET(n = 0)
-    SET (area = r * c)
-    IF (area > 700)
-        INT(1, 700,  m) NEWLINE
-        SET(n = m)
-    ELSE
-        INT(1, area, m) NEWLINE
-        SET(n = m)
-    END
+    INT(1, 700,  n) NEWLINE
     
     REPI(coor, n)
         INT(0, r - 1, y) SPACE

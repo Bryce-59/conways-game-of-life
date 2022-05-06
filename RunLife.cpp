@@ -2,6 +2,10 @@
 // RunLife.cpp
 // ----------------
 
+#ifndef RunLife_cpp
+#define RunLife_cpp
+#endif
+
 // --------
 // includes
 // --------
@@ -12,7 +16,9 @@
 #include <cassert>   // assert
 #include <algorithm> //count
 
-// #include "Life.hpp"
+#ifndef Life_hpp
+#include "Life.hpp"
+#endif
 
 // ----
 // main
@@ -57,7 +63,7 @@ vector<vector<bool>> get_start_map () {
     int n;
     cin >> n;
     assert(n > 0);
-    assert((n <= r * c) && (n <= 700));
+    assert(n <= 700);
     getline(cin, s);
 
     int coor = 0;

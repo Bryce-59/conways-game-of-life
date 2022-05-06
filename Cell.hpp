@@ -1,18 +1,60 @@
-#include <iostream>
+// -------------
+// Cell.hpp
+// -------------
+
+#ifndef Cell_hpp
+#define Cell_hpp
+#endif
+
+// --------
+// includes
+// --------
+#ifndef AbstractCell_hpp
 #include "AbstractCell.hpp"
-using namespace std;
+#endif
+
+#ifndef FredkinCell_hpp
+#include "FredkinCell.hpp"
+#endif
 
 
 class Cell {
-    private:
-		AbstractCell* _p;
+private:
+    AbstractCell* _p;
+    bool mutated;
 
-	public:
-        Cell( int y, int x, bool alive ) : _p(new FredkinCell(y, x, alive)) {}
-		
-        Cell (AbstractCell* p) { 
-			_p = p; 
+public:
+    Cell() {
+        _p = new FredkinCell();
+        mutated = false;
+    }
+
+    Cell( int y, int x, bool alive ) {
+        _p = new FredkinCell(y, x, alive);
+        mutated = false;
+    }
+
+    Cell (AbstractCell* p) {
+        _p = p;
+        mutated = false;
+    }
+
+    ~Cell    ()             = default;
+
+    bool updateCell(vector<vector<bool>> *map) {
+        bool b = _p->updateCell(map);
+        return b;
+    }
+
+    string displaySelf() {
+        return _p->displaySelf();
+    }
+
+    void mutate (AbstractCell *p) {
+        if(!mutated && ((FredkinCell *) _p)->isAge(2)) {
+            delete _p;
+            _p = p;
+            mutated = true;
         }
-
-    
+    }
 };
