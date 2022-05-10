@@ -1,4 +1,64 @@
-commit dfd9fa8b0d109acd7546a5500cf7ff65becae6b1 (HEAD -> master, origin/master)
+commit 5649cbff531e3022d74d048943ba774ef6089517 (HEAD -> main, origin/main)
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 15:28:14 2022 -0500
+
+    try
+
+commit 01bc525dcea57deb665ba9dd69c9b0b38f430a56
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 13:57:28 2022 -0500
+
+    pus
+
+commit c7f68f37d31ac3cd8dc14b4d8fc28cb0b6039710
+Merge: 095e41e b06fb3a
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 13:36:58 2022 -0500
+
+    again
+
+commit b06fb3a994978ba233963ee2bf7df54931516997 (origin/master, master2, master)
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 12:56:23 2022 -0500
+
+    another test
+
+commit eb3711875453c05d3b80b7929f670966aa79ee8d
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 12:52:38 2022 -0500
+
+    update
+
+commit e30efd29caa89dd31ea0960a116b4a54df220408
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Tue May 10 12:24:33 2022 -0500
+
+    changes
+
+commit 095e41e8f7de322b97d3e469cc088b845356e42a
+Merge: 386a520 40db737
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:56:13 2022 +0000
+
+    Merge branch 'master' into 'main'
+    
+    Master
+    
+    See merge request brycedrichardson191/cs371p-life!5
+
+commit 386a520384f543b3ff30a67354837d666e7f5318
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:55:15 2022 +0000
+
+    Delete RunLife.gen.txt
+
+commit 40db737f03f1318d7fdda75856794ee23fa2ae44
+Author: Bryce Richardson <bryce01@cs.utexas.edu>
+Date:   Thu May 5 23:55:00 2022 -0500
+
+    final final final
+
+commit dfd9fa8b0d109acd7546a5500cf7ff65becae6b1
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
 Date:   Thu May 5 23:52:57 2022 -0500
 
@@ -10,11 +70,40 @@ Date:   Thu May 5 23:50:12 2022 -0500
 
     -pipeline
 
+commit 23bf6d5c4769cfa4d61ad789f63f6223c5191659
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:48:48 2022 +0000
+
+    Delete RunLifeFredkin
+
+commit e6614f2f71fee6c3e1b5dc533ccd3ceb70d065fa
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:48:46 2022 +0000
+
+    Delete RunLifeConway
+
+commit 484e71c31af4e1b1db49f2fe7d8dd670038a3afc
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:48:43 2022 +0000
+
+    Delete RunLifeCell
+
 commit 7f33d70c54bf0d54eb4f81efbe027c75bdff117f
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
 Date:   Thu May 5 23:48:18 2022 -0500
 
     -pipeline
+
+commit bb7791628e005345bfaedf1ec8aea82c372a2cb0
+Merge: 86ccf72 ce2c195
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Fri May 6 04:45:37 2022 +0000
+
+    Merge branch 'master' into 'main'
+    
+    Master
+    
+    See merge request brycedrichardson191/cs371p-life!4
 
 commit ce2c1957071b40a11d7719ff9e63937f861bac3b
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
@@ -40,11 +129,33 @@ Date:   Thu May 5 14:06:25 2022 -0500
 
     working cell
 
+commit 86ccf727b33f8dcd14f96135fc87f7262ca8a028 (origin/15-update-makefile-with-3-harnesses)
+Merge: 6c82be8 c86129a
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Thu May 5 08:16:03 2022 +0000
+
+    Merge branch 'master' into 'main'
+    
+    add pipeline
+    
+    See merge request brycedrichardson191/cs371p-life!3
+
 commit c86129afb9681d5c6c9de9542e6820b5eba729a5
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
 Date:   Thu May 5 03:15:09 2022 -0500
 
     add pipeline
+
+commit 6c82be87a734abce5fa9a8109ed5c7ce820a5e19
+Merge: 4f702fc 0a47a69
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Thu May 5 08:12:12 2022 +0000
+
+    Merge branch 'master' into 'main'
+    
+    Master
+    
+    See merge request brycedrichardson191/cs371p-life!2
 
 commit 0a47a6967f9a69787ca3c2a9828d4cba06dd9a9f
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
@@ -82,13 +193,24 @@ Date:   Wed May 4 01:38:00 2022 -0500
 
     some more progress
 
+commit 4f702fcffa258e5f9ca5539cb62f9fb64e127103
+Merge: e0cd63d 226ca2e
+Author: Bryce Richardson <brycedrichardson19@gmail.com>
+Date:   Mon May 2 06:24:56 2022 +0000
+
+    Merge branch 'master' into 'main'
+    
+    first commit
+    
+    See merge request brycedrichardson191/cs371p-life!1
+
 commit 226ca2e36b932f864e4d601415fb75cb19dd04f2
 Author: Bryce Richardson <bryce01@cs.utexas.edu>
 Date:   Mon May 2 01:17:54 2022 -0500
 
     first commit
 
-commit e0cd63d0f59e6b4b7e623cffd334b7de89d1eecb (origin/main)
+commit e0cd63d0f59e6b4b7e623cffd334b7de89d1eecb
 Author: Bryce Richardson <brycedrichardson19@gmail.com>
 Date:   Mon May 2 06:13:56 2022 +0000
 

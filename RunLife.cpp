@@ -87,7 +87,7 @@ vector<vector<bool>> get_start_map () {
 }
 
 template <typename C>
-void start_game(Life<C> life_board) {
+bool start_game(Life<C> life_board) {
     string s;
     int s_;
     int f;
@@ -107,4 +107,6 @@ void start_game(Life<C> life_board) {
         }
         life_board.updateBoard();
     }
+
+    return true;
 }
