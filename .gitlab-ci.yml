@@ -11,5 +11,12 @@ gcc:
     - ls -al
     - make test
     - ls -al
+    - make run-conway
+    - ls -al
+    - make run-fredkin
+    - ls -al
+    - make run-cell
+    - ls -al
+    - make run-all
     - make check
     - ls -al
