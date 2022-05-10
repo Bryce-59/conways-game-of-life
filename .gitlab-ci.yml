@@ -17,6 +17,6 @@ gcc:
     - ls -al
     - make run-cell
     - ls -al
-    - make run-all
+    - make run-all-all
     - make check
     - ls -al
