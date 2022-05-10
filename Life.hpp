@@ -63,13 +63,9 @@ public:
 
     void updateBoard () {
         int cur_pop = 0;
-        Cell tmp = Cell();
         for (int y = 0; y < board.size(); y++) {
             for (int x = 0; x < board[0].size(); x++) {
                 bool alive = board[y][x].updateCell(&neighborhood);
-                if (alive && typeid(board[y][x]).name() == typeid(tmp).name() && board[y][x].displaySelf() == "2") {
-                    board[y][x] = new ConwayCell(y, x, true);
-                }
                 cur_neighborhood[y][x] = alive;
                 cur_pop += alive;
             }

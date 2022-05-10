@@ -157,13 +157,13 @@ ctd-generate:
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
 run-conway: ../cs371p-Life-tests
-	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeConway
+	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeConway
 
 run-fredkin: ../cs371p-Life-tests
-	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeFredkin
+	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin
 
 run-cell: ../cs371p-Life-tests
-	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeCell
+	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeCell
 
 # execute the run harness against all of the test files in the Allocator test repo and diff with the expected output
 run-all-conway: ../cs371p-Life-tests

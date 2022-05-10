@@ -22,6 +22,7 @@ private:
     int countNeighbors(vector<vector<bool>> *map) {
         int pos_y = AbstractCell::_y;
         int pos_x = AbstractCell::_x;
+
         assert((*map)[pos_y][pos_x] == AbstractCell::_alive);
 
         int y_min = max(0, pos_y - 1);
