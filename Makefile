@@ -157,19 +157,13 @@ ctd-generate:
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
 run-conway: ../cs371p-Life-tests
-	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt
-	./RunLifeConway < ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt > RunLifeConway.tmp.txt
-	diff RunLifeConway.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.out.txt
+	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeConway
 
 run-fredkin: ../cs371p-Life-tests
-	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt
-	./RunLifeFredkin < ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt > RunLifeFredkin.tmp.txt
-	diff RunLifeFredkin.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.out.txt
+	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeFredkin
 
 run-cell: ../cs371p-Life-tests
-	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt
-	./RunLifeCell < ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt > RunLifeCell.tmp.txt
-	diff RunLifeCell.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.out.txt
+	-make ../cs371p-allocator-tests/brycedrichardson191-RunLifeCell
 
 # execute the run harness against all of the test files in the Allocator test repo and diff with the expected output
 run-all-conway: ../cs371p-Life-tests
