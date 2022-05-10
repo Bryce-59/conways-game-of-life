@@ -5,5 +5,7 @@
 Doxyfile
 Icon?
 latex
-RunAllocator
-TestAllocator
+TestLife
+RunLifeCell
+RunLifeConway
+RunLifeFredkin
