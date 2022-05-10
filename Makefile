@@ -156,17 +156,17 @@ ctd-generate:
 	diff RunLifeCell.tmp.txt $@.out.txt
 
 # execute the run harness against your test files in the Life test repo and diff with the expected output
-run-conway: RunLifeConway
+run-conway: ../cs371p-Life-tests
 	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt
 	./RunLifeConway < ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.in.txt > RunLifeConway.tmp.txt
 	diff RunLifeConway.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeConway.out.txt
 
-run-fredkin: RunLifeFredkin
+run-fredkin: ../cs371p-Life-tests
 	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt
 	./RunLifeFredkin < ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.in.txt > RunLifeFredkin.tmp.txt
 	diff RunLifeFredkin.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin.out.txt
 
-run-cell: RunLifeCell
+run-cell: ../cs371p-Life-tests
 	$(CHECKTESTDATA) RunLife.ctd.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt
 	./RunLifeCell < ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.in.txt > RunLifeCell.tmp.txt
 	diff RunLifeCell.tmp.txt ../cs371p-Life-tests/brycedrichardson191-RunLifeCell.out.txt
