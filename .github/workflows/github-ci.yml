@@ -1,0 +1,27 @@
+name: Conways Life
+
+on:
+  push:
+    branches: 
+    - main
+    - "feature/**"
+
+permissions:
+  contents: read
+
+jobs:
+  gcc:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: run tests
+      run:
+      - make test
+      - ls -al
+      - make ./tests
+      - ls -al ./tests
+      - ls -al
+      - make run-all
+      - ls -al
+      - make check
+      - ls -al

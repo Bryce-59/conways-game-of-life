@@ -18,14 +18,6 @@
 #include "ConwayCell.hpp"
 #endif
 
-#ifndef FredkinCell_hpp
-#include "FredkinCell.hpp"
-#endif
-
-#ifndef Cell_hpp
-#include "Cell.hpp"
-#endif
-
 #include <vector>
 
 using namespace std;

@@ -6,19 +6,12 @@
 #define ConwayCell_hpp
 #endif
 
-// --------
-// includes
-// --------
-#ifndef AbstractCell_hpp
-#include "AbstractCell.hpp"
-#endif
-
 #include <cassert>
 
 using namespace std;
 class ConwayCell : public AbstractCell {
-private:
 
+private:
     int countNeighbors(vector<vector<bool>> *map) {
         int pos_y = AbstractCell::_y;
         int pos_x = AbstractCell::_x;
@@ -40,35 +33,19 @@ private:
     }
 
 public:
-    ConwayCell() : AbstractCell() {}
+    ConwayCell() = AbstractCell();
+    ConwayCell( int y, int x, bool alive ) : AbstractCell(x, y, alive);
+    ConwayCell( ConwayCell *p ) : AbstractCell(*p);
 
-    ConwayCell( int y, int x, bool alive ) : AbstractCell(y, x, alive) {}
-
-    ConwayCell( AbstractCell *p ) : AbstractCell(p) {}
-
-    ~ConwayCell    ()             = default;
+    ~ConwayCell() = default;
 
     string displaySelf() {
-        if (AbstractCell::_alive) {
-            return "*";
-        }
-        return ".";
+        return AbstractCell::_alive ? "*" : ".";
     }
 
     bool updateCell(vector<vector<bool>> *map) {
         int n = countNeighbors(map);
-        if (AbstractCell::_alive == true) {
-            if (n < 2 || n > 3) {
-                AbstractCell::_alive = false;
-                return false;
-            }
-            return true;
-        } else {
-            if (n == 3) {
-                AbstractCell::_alive = true;
-                return true;
-            }
-        }
-        return false;
+        AbstractCell::_alive = n == 3 || (AbstractCell::_alive && n == 2);
+        return AbstractCell::_alive;
     }
 };

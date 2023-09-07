@@ -1,83 +1,42 @@
 .DEFAULT_GOAL := all
-SHELL         := bash
 
 ASTYLE        := astyle
 CHECKTESTDATA := checktestdata
 CPPCHECK      := cppcheck
+CXXFLAGS 	  := --coverage -g -std=c++17 -Wall -Wextra -Wpedantic
 DOXYGEN       := doxygen
-SHELL 		  := /bin/bash # added due to instructions from Project #1
+SHELL 		  := /bin/bash
 
 ifeq ($(shell uname -s), Darwin)
-    BOOST    := /usr/local/include/boost
     CXX      := clang++
-    CXXFLAGS := --coverage -g -std=c++17 -Wall -Wextra -Wpedantic
     GCOV     := llvm-cov gcov
-    GTEST    := /usr/local/src/googletest-master
     LDFLAGS  := -lgtest -lgtest_main
-    LIB      := /usr/local/lib
     VALGRIND :=
 else ifeq ($(shell uname -p), unknown)
-    BOOST    := /usr/include/boost
     CXX      := g++
-    CXXFLAGS := --coverage -g -std=c++17 -Wall -Wextra -Wpedantic
     GCOV     := gcov
-    GTEST    := /usr/src/gtest
     LDFLAGS  := -lgtest -lgtest_main -pthread
-    LIB      := /usr/lib
     VALGRIND :=
 else
-    BOOST    := /usr/local/opt/boost-1.67/include/boost
     CXX      := g++-11
-    CXXFLAGS := --coverage -g -std=c++17 -Wall -Wextra -Wpedantic
     GCOV     := gcov-11
-    GTEST    := /usr/local/include/gtest
     LDFLAGS  := -L/usr/local/opt/boost-1.77/lib/ -lgtest -lgtest_main -pthread
-    LIB      := /usr/local/lib
     VALGRIND := valgrind-3.17
 endif
 
-# run docker
-docker:
-	docker run --rm -i -t -v $(PWD):/usr/gcc -w /usr/gcc gpdowning/gcc
-
-# get git config
-config:
-	git config -l
-
-# get git log
-Life.log.txt:
-	git log > Life.log.txt
-
-# get git status
-status:
-	make clean
-	@echo
-	git branch
-	git remote -v
-	git status
-
-# download files from the Life code repo
+# download files from GitHub
 pull:
 	make clean
 	@echo
 	git pull
 	git status
 
-# upload files to the Life code repo
+# upload files to GitHub
 push:
 	make clean
 	@echo
-	git add .gitignore
-	git add .gitlab-ci.yml
-	git add Life.hpp
-	-git add Life.log.txt
-	-git add html
-	git add Makefile
-	git add README.md
-	git add RunLife.cpp
-	git add RunLife.ctd.txt
-	git add TestLife.cpp
-	git commit -m "another commit"
+	git add *
+	git commit -m "push commit"
 	git push
 	git status
 
@@ -85,14 +44,6 @@ push:
 RunLifeConway: RunLifeConway.cpp
 	-$(CPPCHECK) RunLifeConway.cpp
 	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
-
-RunLifeFredkin: RunLifeFredkin.cpp
-	-$(CPPCHECK) RunLifeFredkin.cpp
-	$(CXX) $(CXXFLAGS) RunLifeFredkin.cpp -o RunLifeFredkin
-
-RunLifeCell: RunLifeCell.cpp
-	-$(CPPCHECK) RunLifeCell.cpp
-	$(CXX) $(CXXFLAGS) RunLifeCell.cpp -o RunLifeCell
 
 # compile test harness
 TestLife: Life.hpp TestLife.cpp
@@ -102,11 +53,8 @@ TestLife: Life.hpp TestLife.cpp
 # run/test files, compile with make all
 FILES :=          \
     RunLifeConway \
-	RunLifeFredkin\
-	RunLifeCell   \
     TestLife
 
-# compile all
 all: $(FILES)
 
 # execute test harness
@@ -120,17 +68,11 @@ else
 	$(GCOV) TestLife-TestLife.cpp | grep -B 2 "hpp.gcov"
 endif
 
-# clone the Life test repo
-../cs371p-Life-tests:
-	git clone https://gitlab.com/gpdowning/cs371p-Life-tests.git ../cs371p-Life-tests
+# test files in the test repo
+T_FILES_CONWAY := `ls ./tests`
 
-# test files in the Life test repo
-T_FILES_CONWAY := `ls ../cs371p-Life-tests/*Conway.in.txt`
-T_FILES_FREDKIN := `ls ../cs371p-Life-tests/*Fredkin.in.txt`
-T_FILES_CELL := `ls ../cs371p-Life-tests/*Cell.in.txt`
-
-# check the integrity of all the test files in the Collatz test repo
-ctd-check: ../cs371p-Life-tests
+# check the integrity of all the test files in the test repo
+ctd-check: ./tests
 	-for v in $(T_FILES_CONWAY); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
 	-for v in $(T_FILES_FREDKIN); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
 	-for v in $(T_FILES_CELL); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
@@ -139,57 +81,23 @@ ctd-check: ../cs371p-Life-tests
 ctd-generate:
 	for v in {1}; do $(CHECKTESTDATA) -g RunLife.ctd.txt >> RunLife.gen.txt; done
 
-# execute the run harness against a test file in the Collatz test repo and diff with the expected output
-../cs371p-Life-tests/%Conway: RunLifeConway
+# execute the run harness against a test file and diff with the expected output
+./tests/%Conway: RunLifeConway
 	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
 	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
 	diff RunLifeConway.tmp.txt $@.out.txt
 
-../cs371p-Life-tests/%Fredkin: RunLifeFredkin
-	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
-	./RunLifeFredkin < $@.in.txt > RunLifeFredkin.tmp.txt
-	diff RunLifeFredkin.tmp.txt $@.out.txt
-
-../cs371p-Life-tests/%Cell: RunLifeCell
-	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
-	./RunLifeCell < $@.in.txt > RunLifeCell.tmp.txt
-	diff RunLifeCell.tmp.txt $@.out.txt
-
-# execute the run harness against your test files in the Life test repo and diff with the expected output
-run-conway: ../cs371p-Life-tests
-	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeConway
-
-run-fredkin: ../cs371p-Life-tests
-	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeFredkin
-
-run-cell: ../cs371p-Life-tests
-	-make ../cs371p-Life-tests/brycedrichardson191-RunLifeCell
-
-# execute the run harness against all of the test files in the Allocator test repo and diff with the expected output
-run-all-conway: ../cs371p-Life-tests
+# execute the run harness against all of the test files in the test repo and diff with the expected output
+run: ./tests
 	-for v in $(T_FILES_CONWAY); do make $${v/.in.txt/}; done
-
-run-all-fredkin: ../cs371p-Life-tests
-	-for v in $(T_FILES_FREDKIN); do make $${v/.in.txt/}; done
-
-run-all-cell: ../cs371p-Life-tests
-	-for v in $(T_FILES_CELL); do make $${v/.in.txt/}; done
-
-run-all-all: ../cs371p-Life-tests
-	make run-all-conway
-	make run-all-fredkin
-	make run-all-cell
 
 # auto format the code
 format:
-	$(ASTYLE) Life.hpp
+	$(ASTYLE) AbstractCell.hpp
 	$(ASTYLE) ConwayCell.hpp
-	$(ASTYLE) FredkinCell.hpp
-	$(ASTYLE) Cell.hpp
-	$(ASTYLE) RunLifeConway.cpp
-	$(ASTYLE) RunLifeFredkin.cpp
-	$(ASTYLE) RunLifeCell.cpp
+	$(ASTYLE) Life.hpp
 	$(ASTYLE) RunLife.cpp
+	$(ASTYLE) RunLifeConway.cpp
 	$(ASTYLE) TestLife.cpp
 
 # you must edit Doxyfile and
@@ -204,16 +112,6 @@ Doxyfile:
 html: Doxyfile
 	$(DOXYGEN) Doxyfile
 
-# check files, check their existence with make check
-C_FILES :=            \
-    .gitignore        \
-    .gitlab-ci.yml    \
-    Life.log.txt \
-    html
-
-# check the existence of check files
-check: $(C_FILES)
-
 # remove executables and temporary files
 clean:
 	rm -f  *.gcda
@@ -222,8 +120,6 @@ clean:
 	rm -f  *.gen.txt
 	rm -f  *.tmp.txt
 	rm -f  *.orig
-	rm -f  RunLifeConway
-	rm -f  RunLifeFredkin
 	rm -f  RunLifeCell
 	rm -f  TestLife
 	rm -rf *.dSYM
@@ -231,104 +127,6 @@ clean:
 # remove executables, temporary files, and generated files
 scrub:
 	make clean
-	rm -f  Life.log.txt
 	rm -f  Doxyfile
 	rm -rf html
 	rm -rf latex
-
-# output versions of all tools
-versions:
-	@echo  'shell uname -p'
-	@echo $(shell uname -p)
-
-	@echo
-	@echo  'shell uname -s'
-	@echo $(shell uname -s)
-
-	@echo
-	@echo "% which $(ASTYLE)"
-	@which $(ASTYLE)
-	@echo
-	@echo "% $(ASTYLE) --version"
-	@$(ASTYLE) --version
-
-	@echo
-	@echo "% which $(CHECKTESTDATA)"
-	@which $(CHECKTESTDATA)
-	@echo
-	@echo "% $(CHECKTESTDATA) --version"
-	@$(CHECKTESTDATA) --version
-
-	@echo
-	@echo "% which cmake"
-	@which cmake
-	@echo
-	@echo "% cmake --version"
-	@cmake --version
-
-	@echo
-	@echo "% which $(CPPCHECK)"
-	@which $(CPPCHECK)
-	@echo
-	@echo "% $(CPPCHECK) --version"
-	@$(CPPCHECK) --version
-
-	@echo
-	@echo "% which $(DOXYGEN)"
-	@which $(DOXYGEN)
-	@echo
-	@echo "% $(DOXYGEN) --version"
-	@$(DOXYGEN) --version
-
-	@echo
-	@echo "% which $(CXX)"
-	@which $(CXX)
-	@echo
-	@echo "% $(CXX) --version"
-	@$(CXX) --version
-
-	@echo "% which $(GCOV)"
-	@which $(GCOV)
-	@echo
-	@echo "% $(GCOV) --version"
-	@$(GCOV) --version
-
-	@echo "% which git"
-	@which git
-	@echo
-	@echo "% git --version"
-	@git --version
-
-	@echo
-	@echo "% which make"
-	@which make
-	@echo
-	@echo "% make --version"
-	@make --version
-
-ifneq ($(VALGRIND),)
-	@echo
-	@echo "% which $(VALGRIND)"
-	@which $(VALGRIND)
-	@echo
-	@echo "% $(VALGRIND) --version"
-	@$(VALGRIND) --version
-endif
-
-	@echo
-	@echo "% which vim"
-	@which vim
-	@echo
-	@echo "% vim --version"
-	@vim --version
-
-	@echo
-	@echo "% grep \"#define BOOST_LIB_VERSION \" $(BOOST)/version.hpp"
-	@grep "#define BOOST_LIB_VERSION " $(BOOST)/version.hpp
-
-	@echo
-	@echo "pkg-config --modversion gtest"
-	@pkg-config --modversion gtest
-	@echo
-	@echo "% ls -al $(LIB)/libgtest*.a"
-	@ls -al $(LIB)/libgtest*.a
