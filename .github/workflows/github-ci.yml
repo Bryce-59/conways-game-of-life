@@ -1,10 +1,6 @@
 name: Conways Life
 
-on:
-  push:
-    branches: 
-    - main
-    - "feature/**"
+on: [push]
 
 permissions:
   contents: read
@@ -12,8 +8,8 @@ permissions:
 jobs:
   gcc:
     runs-on: ubuntu-latest
-
     steps:
+    - uses: actions/checkout@v3
     - name: run tests
       run:
       - make test
