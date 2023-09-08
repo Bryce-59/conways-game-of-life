@@ -61,7 +61,7 @@ test: TestLife
 # endif
 
 # test files in the test repo
-T_FILES_CONWAY := `ls ./tests`
+T_FILES_CONWAY := `ls ./tests/*Conway.in.txt`
 
 # execute the run harness against a test file and diff with the expected output
 ./tests/%Conway: run
