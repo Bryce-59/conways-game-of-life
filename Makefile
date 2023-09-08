@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := test
 
 ASTYLE        := astyle
 CHECKTESTDATA := checktestdata
@@ -21,8 +21,13 @@ else
     CXX      := g++-11
     GCOV     := gcov-11
     LDFLAGS  := -L/usr/local/opt/boost-1.77/lib/ -lgtest -lgtest_main -pthread
-    VALGRIND := valgrind-3.17
+    VALGRIND := valgrind
 endif
+
+# compile run harness
+run: RunLifeConway.cpp
+	-$(CPPCHECK) RunLifeConway.cpp
+	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
 
 # download files from GitHub
 pull:
@@ -40,33 +45,21 @@ push:
 	git push
 	git status
 
-# compile run harness
-run: RunLifeConway.cpp
-	-$(CPPCHECK) RunLifeConway.cpp
-	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
-
 # compile test harness
 TestLife: Life.hpp TestLife.cpp
 	-$(CPPCHECK) TestLife.cpp
 	$(CXX) $(CXXFLAGS) TestLife.cpp -o TestLife $(LDFLAGS)
 
-# run/test files, compile with make all
-FILES :=          \
-    RunLifeConway \
-    TestLife
-
-all: $(FILES)
-
 # execute test harness
 test: TestLife
 	$(VALGRIND) ./TestLife
-ifeq ($(shell uname -s), Darwin)
-	$(GCOV) TestLife.cpp | grep -B 2 "hpp.gcov"
-else ifeq ($(shell uname -p), unknown)
-	$(GCOV) TestLife.cpp | grep -B 2 "hpp.gcov"
-else
-	$(GCOV) TestLife-TestLife.cpp | grep -B 2 "hpp.gcov"
-endif
+# ifeq ($(shell uname -s), Darwin)
+# 	$(GCOV) TestLife.cpp | grep -B 2 "hpp.gcov"
+# else ifeq ($(shell uname -p), unknown)
+# 	$(GCOV) TestLife.cpp | grep -B 2 "hpp.gcov"
+# else
+# 	$(GCOV) TestLife-TestLife.cpp | grep -B 2 "hpp.gcov"
+# endif
 
 # test files in the test repo
 T_FILES_CONWAY := `ls ./tests`
@@ -86,7 +79,7 @@ ctd-generate:
 	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against all of the test files in the test repo and diff with the expected output
-run-test: ./tests
+run-tests: ./tests
 	-for v in $(T_FILES_CONWAY); do make $${v/.in.txt/}; done
 
 # auto format the code

@@ -1,5 +1,5 @@
 // ---------------
-// TestVoting.cpp
+// TestLife.cpp
 // ---------------
 
 // https://code.google.com/p/googletest/wiki/V1_7_Primer#Basic_Assertions
@@ -36,7 +36,7 @@ TEST(LifeFixture, conway_test_0) {
     int f = 3;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 3, Population = 11.\n"
+    string ans = "Time = 3, Population = 11.\n"
                  "..*..\n"
                  ".***.\n"
                  ".*..*\n"
@@ -60,7 +60,7 @@ TEST(LifeFixture, conway_test_1) {
     int f = 0;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 0, Population = 3.\n"
+    string ans = "Time = 0, Population = 3.\n"
                  "........\n"
                  "....*...\n"
                  "..*.....\n"
@@ -79,7 +79,7 @@ TEST(LifeFixture, conway_test_2) {
     int f = 2;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 2, Population = 8.\n"
+    string ans = "Time = 2, Population = 8.\n"
                  "**.*.*...\n"
                  "**.*.*...\n";
 
@@ -101,7 +101,7 @@ TEST(LifeFixture, conway_test_3) {
     int f = 1;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 1, Population = 1.\n"
+    string ans = "Time = 1, Population = 1.\n"
                  ".\n"
                  "*\n"
                  ".\n"
@@ -124,7 +124,7 @@ TEST(LifeFixture, conway_test_4) {
     int f = 2;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 2, Population = 2.\n"
+    string ans = "Time = 2, Population = 2.\n"
                  ".......\n"
                  "....**.\n"
                  ".......\n";
@@ -147,7 +147,7 @@ TEST(LifeFixture, conway_test_5) {
     int f = 1;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 1, Population = 15.\n"
+    string ans = "Time = 1, Population = 15.\n"
                  "..***..\n"
                  ".*.*.**\n"
                  "...*.*.\n"
@@ -168,7 +168,7 @@ TEST(LifeFixture, conway_test_6) {
     int f = 3;
 
     Life<ConwayCell> lifeboard(map);
-    string ans = "Generation = 3, Population = 0.\n"
+    string ans = "Time = 3, Population = 0.\n"
                  "...\n"
                  "...\n";
 
