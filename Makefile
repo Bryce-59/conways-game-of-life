@@ -64,7 +64,7 @@ test: TestLife
 T_FILES_CONWAY := `ls ./tests/*ConwayCell.in.txt`
 
 # execute the run harness against a test file and diff with the expected output
-./tests/%Conway: run
+./tests/%ConwayCell: run
 	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
 	diff RunLifeConway.tmp.txt $@.out.txt
 
