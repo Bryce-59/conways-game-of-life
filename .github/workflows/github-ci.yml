@@ -1,23 +1,23 @@
-name: Conways Life
+name: C/C++ CI
 
-on: [push]
-
-permissions:
-  contents: read
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  gcc:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
-    - name: run tests
-      run:
-      - make test
-      - ls -al
-      - make ./tests
-      - ls -al ./tests
-      - ls -al
-      - make run-all
-      - ls -al
-      - make check
-      - ls -al
+    - name: configure
+      run: ./configure
+    - name: make test
+      run: make test
+    - name: make ctd-check
+      run: make ctd-check
+    - name: make run-tests
+      run: make run-tests
