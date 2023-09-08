@@ -41,7 +41,7 @@ push:
 	git status
 
 # compile run harness
-RunLifeConway: RunLifeConway.cpp
+run: RunLifeConway.cpp
 	-$(CPPCHECK) RunLifeConway.cpp
 	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
 
@@ -74,8 +74,6 @@ T_FILES_CONWAY := `ls ./tests`
 # check the integrity of all the test files in the test repo
 ctd-check: ./tests
 	-for v in $(T_FILES_CONWAY); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
-	-for v in $(T_FILES_FREDKIN); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
-	-for v in $(T_FILES_CELL); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
 
 # generate a random input file
 ctd-generate:
@@ -88,7 +86,7 @@ ctd-generate:
 	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against all of the test files in the test repo and diff with the expected output
-run: ./tests
+run-test: ./tests
 	-for v in $(T_FILES_CONWAY); do make $${v/.in.txt/}; done
 
 # auto format the code
@@ -100,10 +98,6 @@ format:
 	$(ASTYLE) RunLifeConway.cpp
 	$(ASTYLE) TestLife.cpp
 
-# you must edit Doxyfile and
-# set EXTRACT_ALL     to YES
-# set EXTRACT_PRIVATE to YES
-# set EXTRACT_STATIC  to YES
 # create Doxfile
 Doxyfile:
 	$(DOXYGEN) -g
