@@ -1,6 +1,6 @@
-*** Life<ConwayCell> 6x5 ***
+*** Conway's Game of Life 6x5 ***
 
-Generation = 0, Population = 9.
+Time = 0, Population = 9.
 ...*.
 *.*..
 .**..
@@ -8,7 +8,7 @@ Generation = 0, Population = 9.
 *....
 *....
 
-Generation = 2, Population = 5.
+Time = 2, Population = 5.
 .....
 ..**.
 ...*.
@@ -16,9 +16,9 @@ Generation = 2, Population = 5.
 .*...
 .....
 
-*** Life<ConwayCell> 6x8 ***
+*** Conway's Game of Life 6x8 ***
 
-Generation = 0, Population = 17.
+Time = 0, Population = 17.
 *.*.*.*.
 .***..*.
 *...*..*
@@ -26,7 +26,7 @@ Generation = 0, Population = 17.
 ........
 **......
 
-Generation = 1, Population = 15.
+Time = 1, Population = 15.
 ..*..*..
 *.*.*.**
 *....*.*
@@ -34,9 +34,9 @@ Generation = 1, Population = 15.
 *.*.....
 ........
 
-*** Life<ConwayCell> 8x7 ***
+*** Conway's Game of Life 8x7 ***
 
-Generation = 0, Population = 23.
+Time = 0, Population = 23.
 ..*.*.*
 .**..**
 .*...**
@@ -46,7 +46,7 @@ Generation = 0, Population = 23.
 .*...*.
 .*.**..
 
-Generation = 3, Population = 18.
+Time = 3, Population = 18.
 .......
 .......
 ..**...
@@ -56,25 +56,25 @@ Generation = 3, Population = 18.
 .******
 ...*...
 
-*** Life<ConwayCell> 5x9 ***
+*** Conway's Game of Life 5x9 ***
 
-Generation = 0, Population = 3.
+Time = 0, Population = 3.
 .........
 .*..*....
 .....*...
 .........
 .........
 
-Generation = 2, Population = 0.
+Time = 2, Population = 0.
 .........
 .........
 .........
 .........
 .........
 
-*** Life<ConwayCell> 8x6 ***
+*** Conway's Game of Life 8x6 ***
 
-Generation = 0, Population = 2.
+Time = 0, Population = 2.
 .....*
 ......
 ......
@@ -84,7 +84,7 @@ Generation = 0, Population = 2.
 ......
 ......
 
-Generation = 1, Population = 0.
+Time = 1, Population = 0.
 ......
 ......
 ......
@@ -94,7 +94,7 @@ Generation = 1, Population = 0.
 ......
 ......
 
-Generation = 2, Population = 0.
+Time = 2, Population = 0.
 ......
 ......
 ......
@@ -104,9 +104,9 @@ Generation = 2, Population = 0.
 ......
 ......
 
-*** Life<ConwayCell> 9x9 ***
+*** Conway's Game of Life 9x9 ***
 
-Generation = 0, Population = 23.
+Time = 0, Population = 23.
 ........*
 ......***
 ....*....
@@ -117,7 +117,7 @@ Generation = 0, Population = 23.
 *.**....*
 *.*......
 
-Generation = 2, Population = 25.
+Time = 2, Population = 25.
 .......**
 ......***
 ....****.
@@ -128,9 +128,9 @@ Generation = 2, Population = 25.
 .**.*....
 ..**.....
 
-*** Life<ConwayCell> 8x6 ***
+*** Conway's Game of Life 8x6 ***
 
-Generation = 0, Population = 15.
+Time = 0, Population = 15.
 ......
 *.*.*.
 *.....
@@ -140,9 +140,9 @@ Generation = 0, Population = 15.
 *..*..
 *.....
 
-*** Life<ConwayCell> 10x5 ***
+*** Conway's Game of Life 10x5 ***
 
-Generation = 0, Population = 11.
+Time = 0, Population = 11.
 ...**
 ...**
 *....
@@ -154,9 +154,9 @@ Generation = 0, Population = 11.
 .....
 ..*..
 
-*** Life<ConwayCell> 7x8 ***
+*** Conway's Game of Life 7x8 ***
 
-Generation = 0, Population = 16.
+Time = 0, Population = 16.
 ...**..*
 ....**..
 ...*.*..
@@ -165,7 +165,7 @@ Generation = 0, Population = 16.
 ........
 ..*.*...
 
-Generation = 1, Population = 17.
+Time = 1, Population = 17.
 ...***..
 .....**.
 .....*..
@@ -174,7 +174,7 @@ Generation = 1, Population = 17.
 ..**....
 ........
 
-Generation = 2, Population = 15.
+Time = 2, Population = 15.
 ....***.
 ......*.
 ....*..*
@@ -183,7 +183,7 @@ Generation = 2, Population = 15.
 .**.....
 ........
 
-Generation = 3, Population = 14.
+Time = 3, Population = 14.
 .....**.
 ....*.**
 .....*.*
@@ -192,7 +192,7 @@ Generation = 3, Population = 14.
 .**.....
 ........
 
-Generation = 4, Population = 15.
+Time = 4, Population = 15.
 .....***
 ....*..*
 ....**.*
@@ -201,9 +201,9 @@ Generation = 4, Population = 15.
 .***....
 ........
 
-*** Life<ConwayCell> 10x10 ***
+*** Conway's Game of Life 10x10 ***
 
-Generation = 0, Population = 9.
+Time = 0, Population = 9.
 .*........
 ......**..
 ..........
@@ -215,9 +215,9 @@ Generation = 0, Population = 9.
 .........*
 ..........
 
-*** Life<ConwayCell> 9x10 ***
+*** Conway's Game of Life 9x10 ***
 
-Generation = 0, Population = 13.
+Time = 0, Population = 13.
 ....*.....
 .......*..
 ..........
@@ -228,9 +228,9 @@ Generation = 0, Population = 13.
 *.*.*.....
 .*..*..*.*
 
-*** Life<ConwayCell> 8x9 ***
+*** Conway's Game of Life 8x9 ***
 
-Generation = 0, Population = 12.
+Time = 0, Population = 12.
 .*.......
 *.....**.
 *...*....
@@ -240,9 +240,9 @@ Generation = 0, Population = 12.
 ..***..*.
 ....*....
 
-*** Life<ConwayCell> 8x10 ***
+*** Conway's Game of Life 8x10 ***
 
-Generation = 0, Population = 15.
+Time = 0, Population = 15.
 .*.*.**...
 ...*..*.*.
 ..........
@@ -252,7 +252,7 @@ Generation = 0, Population = 15.
 ..*..**...
 *.........
 
-Generation = 1, Population = 14.
+Time = 1, Population = 14.
 ..*.****..
 ..*.****..
 .....***..
@@ -262,7 +262,7 @@ Generation = 1, Population = 14.
 .*........
 ..........
 
-Generation = 2, Population = 6.
+Time = 2, Population = 6.
 ....*..*..
 ........*.
 ....*..*..
@@ -272,7 +272,7 @@ Generation = 2, Population = 6.
 ..........
 ..........
 
-Generation = 3, Population = 3.
+Time = 3, Population = 3.
 ..........
 .......**.
 .......*..
@@ -282,7 +282,7 @@ Generation = 3, Population = 3.
 ..........
 ..........
 
-Generation = 4, Population = 4.
+Time = 4, Population = 4.
 ..........
 .......**.
 .......**.
@@ -292,9 +292,9 @@ Generation = 4, Population = 4.
 ..........
 ..........
 
-*** Life<ConwayCell> 9x5 ***
+*** Conway's Game of Life 9x5 ***
 
-Generation = 0, Population = 9.
+Time = 0, Population = 9.
 .....
 ...*.
 *....
@@ -305,7 +305,7 @@ Generation = 0, Population = 9.
 .*...
 .....
 
-Generation = 1, Population = 6.
+Time = 1, Population = 6.
 .....
 .....
 .....
@@ -316,7 +316,7 @@ Generation = 1, Population = 6.
 .*...
 .....
 
-Generation = 2, Population = 7.
+Time = 2, Population = 7.
 .....
 .....
 .....
@@ -327,7 +327,7 @@ Generation = 2, Population = 7.
 .**..
 .....
 
-Generation = 3, Population = 8.
+Time = 3, Population = 8.
 .....
 .....
 .....
@@ -338,7 +338,7 @@ Generation = 3, Population = 8.
 .**..
 .....
 
-Generation = 4, Population = 9.
+Time = 4, Population = 9.
 .....
 .....
 .....
@@ -349,9 +349,9 @@ Generation = 4, Population = 9.
 .**..
 .....
 
-*** Life<ConwayCell> 10x10 ***
+*** Conway's Game of Life 10x10 ***
 
-Generation = 0, Population = 4.
+Time = 0, Population = 4.
 ..........
 ..........
 ......*...
@@ -363,7 +363,7 @@ Generation = 0, Population = 4.
 ..........
 ..........
 
-Generation = 3, Population = 0.
+Time = 3, Population = 0.
 ..........
 ..........
 ..........
@@ -375,9 +375,9 @@ Generation = 3, Population = 0.
 ..........
 ..........
 
-*** Life<ConwayCell> 10x4 ***
+*** Conway's Game of Life 10x4 ***
 
-Generation = 0, Population = 21.
+Time = 0, Population = 21.
 ***.
 ...*
 *..*
@@ -389,9 +389,9 @@ Generation = 0, Population = 21.
 **.*
 ..*.
 
-*** Life<ConwayCell> 9x4 ***
+*** Conway's Game of Life 9x4 ***
 
-Generation = 0, Population = 17.
+Time = 0, Population = 17.
 .*..
 *...
 ..*.
@@ -402,7 +402,7 @@ Generation = 0, Population = 17.
 ..**
 *...
 
-Generation = 1, Population = 9.
+Time = 1, Population = 9.
 ....
 .*..
 ..*.
@@ -413,7 +413,7 @@ Generation = 1, Population = 9.
 ..**
 ....
 
-Generation = 2, Population = 8.
+Time = 2, Population = 8.
 ....
 ....
 .**.
@@ -424,9 +424,9 @@ Generation = 2, Population = 8.
 ....
 ....
 
-*** Life<ConwayCell> 9x5 ***
+*** Conway's Game of Life 9x5 ***
 
-Generation = 0, Population = 5.
+Time = 0, Population = 5.
 ..*..
 .....
 .....
@@ -437,49 +437,49 @@ Generation = 0, Population = 5.
 *...*
 ...*.
 
-*** Life<ConwayCell> 4x5 ***
+*** Conway's Game of Life 4x5 ***
 
-Generation = 0, Population = 12.
+Time = 0, Population = 12.
 .*..*
 *.***
 **.*.
 ***..
 
-*** Life<ConwayCell> 4x7 ***
+*** Conway's Game of Life 4x7 ***
 
-Generation = 0, Population = 8.
+Time = 0, Population = 8.
 *.....*
 *...*.*
 ...*...
 .*.*...
 
-Generation = 1, Population = 6.
+Time = 1, Population = 6.
 .....*.
 .....*.
 ..***..
 ..*....
 
-Generation = 2, Population = 6.
+Time = 2, Population = 6.
 .......
 ...*.*.
 ..***..
 ..*....
 
-Generation = 3, Population = 5.
+Time = 3, Population = 5.
 .......
 ..**...
 ..*.*..
 ..*....
 
-Generation = 4, Population = 5.
+Time = 4, Population = 5.
 .......
 ..**...
 .**....
 ...*...
 
-*** Life<ConwayCell> 6x4 ***
+*** Conway's Game of Life 6x4 ***
 
-Generation = 0, Population = 2.
+Time = 0, Population = 2.
 ....
 ....
 ....
@@ -487,7 +487,7 @@ Generation = 0, Population = 2.
 ...*
 ..*.
 
-Generation = 1, Population = 0.
+Time = 1, Population = 0.
 ....
 ....
 ....
@@ -495,9 +495,9 @@ Generation = 1, Population = 0.
 ....
 ....
 
-*** Life<ConwayCell> 7x9 ***
+*** Conway's Game of Life 7x9 ***
 
-Generation = 0, Population = 17.
+Time = 0, Population = 17.
 .....*.**
 ...**....
 *.....*.*
@@ -506,7 +506,7 @@ Generation = 0, Population = 17.
 .....***.
 .....*...
 
-Generation = 1, Population = 15.
+Time = 1, Population = 15.
 ....*....
 ....***.*
 ....****.
@@ -515,7 +515,7 @@ Generation = 1, Population = 15.
 .....*.*.
 .....*...
 
-Generation = 2, Population = 11.
+Time = 2, Population = 11.
 ....*....
 ...*.....
 ........*

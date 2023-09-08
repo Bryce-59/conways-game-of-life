@@ -68,7 +68,7 @@ public:
     }
 
     string displayBoard() {
-        string str = "Generation = " + to_string(generation) + ", Population = " + to_string(population) + ".\n";
+        string str = "Time = " + to_string(generation) + ", Population = " + to_string(population) + ".\n";
         for (int y = 0; y < board.size(); y++) {
             for (int x = 0; x < board[0].size(); x++) {
                 str += board[y][x].displaySelf();

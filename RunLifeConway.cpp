@@ -39,7 +39,7 @@ int main () {
         if (i != 0) {
             cout << endl;
         }
-        cout << "*** Life<ConwayCell> " << start_map.size() << "x" << start_map[0].size() << " ***" << endl;
+        cout << "*** Conway's Game of Life " << start_map.size() << "x" << start_map[0].size() << " ***" << endl;
         start_game (life_board);
     }
     return 0;
