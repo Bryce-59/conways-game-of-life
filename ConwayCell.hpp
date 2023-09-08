@@ -33,10 +33,9 @@ private:
     }
 
 public:
-    ConwayCell() = AbstractCell();
-    ConwayCell( int y, int x, bool alive ) : AbstractCell(x, y, alive);
-    ConwayCell( ConwayCell *p ) : AbstractCell(*p);
-
+    ConwayCell() : AbstractCell() {}
+    ConwayCell( int y, int x, bool alive ) : AbstractCell(y, x, alive) {}
+    ConwayCell( ConwayCell *p ) : AbstractCell(*p) {}
     ~ConwayCell() = default;
 
     string displaySelf() {
