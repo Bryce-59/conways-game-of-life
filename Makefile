@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := test
 
 ASTYLE        := astyle
-CHECKTESTDATA := checktestdata
 CPPCHECK      := cppcheck
 CXXFLAGS 	  := --coverage -g -std=c++17 -Wall -Wextra -Wpedantic
 DOXYGEN       := doxygen
@@ -62,19 +61,10 @@ test: TestLife
 # endif
 
 # test files in the test repo
-T_FILES_CONWAY := `ls ./tests`
-
-# check the integrity of all the test files in the test repo
-ctd-check: ./tests
-	-for v in $(T_FILES_CONWAY); do echo $(CHECKTESTDATA) RunLife.ctd.txt $$v; $(CHECKTESTDATA) RunLife.ctd.txt $$v; done
-
-# generate a random input file
-ctd-generate:
-	for v in {1}; do $(CHECKTESTDATA) -g RunLife.ctd.txt >> RunLife.gen.txt; done
+T_FILES_CONWAY := `ls ./tests/*ConwayCell.in.txt`
 
 # execute the run harness against a test file and diff with the expected output
-./tests/%Conway: RunLifeConway
-	$(CHECKTESTDATA) RunLife.ctd.txt $@.in.txt
+./tests/%ConwayCell: run
 	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
 	diff RunLifeConway.tmp.txt $@.out.txt
 
