@@ -65,12 +65,12 @@ T_FILES_CONWAY := `ls ./tests`
 
 # execute the run harness against a test file and diff with the expected output
 ./tests/%Conway: run
-	./RunLifeConway < $@.in > RunLifeConway.tmp.txt
-	diff RunLifeConway.tmp.txt $@.out
+	./RunLifeConway < $@.in.txt > RunLifeConway.tmp.txt
+	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against all of the test files in the test repo and diff with the expected output
 run-tests: ./tests
-	-for v in $(T_FILES_CONWAY); do make $${v/.in/}; done
+	-for v in $(T_FILES_CONWAY); do make $${v/.in.txt/}; done
 
 # auto format the code
 format:
