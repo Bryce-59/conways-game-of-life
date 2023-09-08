@@ -41,7 +41,7 @@ push:
 	git status
 
 # compile run harness
-RunLifeConway: RunLifeConway.cpp
+run: RunLifeConway.cpp
 	-$(CPPCHECK) RunLifeConway.cpp
 	$(CXX) $(CXXFLAGS) RunLifeConway.cpp -o RunLifeConway
 
@@ -86,7 +86,7 @@ ctd-generate:
 	diff RunLifeConway.tmp.txt $@.out.txt
 
 # execute the run harness against all of the test files in the test repo and diff with the expected output
-run: ./tests
+run-test: ./tests
 	-for v in $(T_FILES_CONWAY); do make $${v/.in.txt/}; done
 
 # auto format the code
